@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todos</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <form class="form-horizontal">
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">name</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" placeholder="name" v-model="newPerson.name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">sex</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" placeholder="sex" v-model="newPerson.sex">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">age</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" placeholder="age" v-model="newPerson.age">
+                </div>
+            </div>
+
+        </form>
+
+        <div class="form-group" style="padding-left: 300px">
+            <button type="button btn-lg" class="btn btn-lg btn-primary" v-on:click="add">添加</button>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>sex</th>
+                <th>age</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="item in todos">
+                <td>{{ item._id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.sex }}</td>
+                <td>{{ item.age }}</td>
+                <td><button type="button" class="btn btn-danger btn-block" @click="deleteobj(item)">删除</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script src="vue.js"></script>
+    <script src="axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
